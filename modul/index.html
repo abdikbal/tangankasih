@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modul & Kuis - Yayasan Tangan Kasih</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script src="../assets/js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="min-h-screen flex flex-col text-slate-800" data-page="module">
+
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <section id="view-module" class="space-y-6">
+            <button onclick="switchView('dashboard')" class="inline-flex items-center text-slate-600 hover:text-brand-blue font-fun font-bold text-sm bg-white border border-slate-200 px-4 py-2 rounded-xl shadow-sm transition-all hover:shadow-md">
+                <i class="fa-solid fa-arrow-left mr-2"></i>Kembali ke Beranda
+            </button>
+
+            <div class="bg-white rounded-3xl border border-slate-100 shadow-xl overflow-hidden">
+                <!-- Module Header Banner -->
+                <div id="module-header-bg" class="p-8 text-white relative">
+                    <div class="relative z-10 space-y-2">
+                        <span id="module-category-badge" class="bg-white/20 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                            Kategori
+                        </span>
+                        <h1 id="module-title-display" class="text-3xl sm:text-4xl font-bold">Judul Modul Pembelajaran</h1>
+                        <p id="module-desc-display" class="text-white/90 text-sm max-w-2xl">Deskripsi modul materi pembelajaran.</p>
+                    </div>
+                </div>
+
+                <!-- Content Area -->
+                <div class="p-6 sm:p-8 space-y-8">
+                    <!-- Lesson Material Box -->
+                    <div class="bg-slate-50 border-2 border-slate-100 rounded-2xl p-6 space-y-4">
+                        <div class="flex items-center space-x-3 text-brand-blue font-fun font-bold text-lg border-b border-slate-200 pb-3">
+                            <i class="fa-solid fa-lightbulb text-brand-yellow text-2xl"></i>
+                            <span>Rangkuman Materi Seru</span>
+                        </div>
+                        <div id="module-content-body" class="text-slate-700 leading-relaxed space-y-3 font-medium">
+                            <!-- Injected content -->
+                        </div>
+                    </div>
+
+                    <!-- Quiz Section -->
+                    <div class="space-y-6 border-t border-slate-100 pt-6">
+                        <div class="flex items-center justify-between">
+                            <h2 class="text-2xl font-bold text-slate-800 font-fun">
+                                <i class="fa-solid fa-gamepad text-brand-coral mr-2"></i>Kuis Interaktif
+                            </h2>
+                            <span id="quiz-progress-text" class="text-xs font-bold bg-amber-100 text-amber-800 px-3 py-1 rounded-full">Soal 1 dari 2</span>
+                        </div>
+
+                        <!-- Quiz Card -->
+                        <div id="quiz-container" class="bg-gradient-to-br from-indigo-50 to-blue-50 border-2 border-indigo-100 rounded-3xl p-6 sm:p-8 space-y-6 shadow-sm">
+                            <div class="text-lg sm:text-xl font-bold text-slate-800" id="quiz-question">
+                                Pertanyaan kuis akan muncul di sini?
+                            </div>
+
+                            <!-- Options Container -->
+                            <div id="quiz-options" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <!-- Dynamic Options -->
+                            </div>
+
+                            <!-- Quiz Feedback Box -->
+                            <div id="quiz-feedback" class="hidden p-4 rounded-2xl font-fun font-bold text-center text-sm transition-all"></div>
+                        </div>
+
+                        <!-- Quiz Navigation Buttons -->
+                        <div class="flex justify-between items-center">
+                            <button id="prev-question-btn" onclick="prevQuestion()" class="px-5 py-2.5 rounded-xl border border-slate-300 font-fun font-bold text-slate-600 hover:bg-slate-100 transition-all text-sm disabled:opacity-50" disabled>
+                                <i class="fa-solid fa-chevron-left mr-2"></i>Sebelumnya
+                            </button>
+                            <button id="next-question-btn" onclick="nextQuestion()" class="px-6 py-2.5 rounded-xl bg-brand-blue text-white font-fun font-bold hover:bg-blue-600 transition-all text-sm shadow-md flex items-center">
+                                Selanjutnya <i class="fa-solid fa-chevron-right ml-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="../assets/js/data.js"></script>
+    <script src="../assets/js/store.js"></script>
+    <script src="../assets/js/layout.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

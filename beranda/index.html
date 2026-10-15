@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beranda Belajar - Yayasan Tangan Kasih</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script src="../assets/js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="min-h-screen flex flex-col text-slate-800" data-page="dashboard">
+
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <section id="view-dashboard" class="space-y-8">
+            <!-- Welcome Banner -->
+            <div class="bg-gradient-to-r from-brand-blue via-indigo-500 to-brand-purple rounded-3xl p-6 sm:p-8 text-white shadow-xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between">
+                <div class="z-10 max-w-xl text-center md:text-left space-y-3">
+                    <span class="bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider backdrop-blur-sm inline-block">
+                        <i class="fa-solid fa-sparkles mr-1"></i> Yayasan Tangan Kasih
+                    </span>
+                    <h1 class="text-3xl sm:text-4xl font-bold leading-tight">Halo, <span id="banner-user-name">Budi</span>! 👋</h1>
+                    <p class="text-blue-100 text-sm sm:text-base font-medium">
+                        Siap untuk petualangan seru hari ini? Pilih materi favoritmu atau ikuti saran pembelajaran pintar di bawah ini!
+                    </p>
+                    <div class="pt-2 flex flex-wrap gap-3 justify-center md:justify-start">
+                        <button onclick="scrollToRecommendations()" class="bg-brand-yellow text-slate-900 font-fun font-bold px-5 py-2.5 rounded-2xl hover:bg-amber-300 transition-all shadow-md flex items-center">
+                            <i class="fa-solid fa-compass mr-2"></i>Lihat Rekomendasi
+                        </button>
+                    </div>
+                </div>
+                <div class="relative mt-6 md:mt-0 z-10 flex justify-center">
+                    <div class="w-40 h-40 sm:w-48 sm:h-48 bg-white/10 backdrop-blur-md rounded-full border-4 border-white/30 flex items-center justify-center relative shadow-inner">
+                        <i class="fa-solid fa-rocket text-7xl text-brand-yellow animate-bounce"></i>
+                    </div>
+                </div>
+                <!-- Background decoration shapes -->
+                <div class="absolute -right-10 -top-10 w-48 h-48 bg-white/10 rounded-full blur-2xl"></div>
+                <div class="absolute -left-10 -bottom-10 w-48 h-48 bg-brand-yellow/20 rounded-full blur-2xl"></div>
+            </div>
+
+            <!-- SMART RECOMMENDATIONS SECTION -->
+            <div id="recommendation-section" class="space-y-4">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-amber-100 rounded-xl flex items-center justify-center text-amber-600">
+                            <i class="fa-solid fa-wand-magic-sparkles text-xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold text-slate-800">Rekomendasi Khusus Untukmu</h2>
+                            <p class="text-xs text-slate-500">Disesuaikan berdasarkan kemampuan & riwayat kuis kamu</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recommendation Cards Container (Populated by JS) -->
+                <div id="recommendation-cards-container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Dynamic Recommendation Cards will be injected here -->
+                </div>
+            </div>
+
+            <!-- ALL MODULES SECTION WITH FILTER -->
+            <div class="space-y-6 pt-4">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center text-brand-blue">
+                            <i class="fa-solid fa-book-open text-xl"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold text-slate-800">Semua Modul Belajar</h2>
+                    </div>
+
+                    <!-- Filter Category Buttons -->
+                    <div class="flex flex-wrap gap-2 bg-slate-200/60 p-1.5 rounded-2xl">
+                        <button onclick="filterModules('all', this)" class="filter-btn active bg-white text-brand-blue shadow-sm font-fun text-xs font-bold px-4 py-2 rounded-xl transition-all">Semua</button>
+                        <button onclick="filterModules('Matematika', this)" class="filter-btn text-slate-600 font-fun text-xs font-bold px-4 py-2 rounded-xl transition-all hover:text-brand-blue">Matematika</button>
+                        <button onclick="filterModules('Bahasa', this)" class="filter-btn text-slate-600 font-fun text-xs font-bold px-4 py-2 rounded-xl transition-all hover:text-brand-blue">Bahasa</button>
+                        <button onclick="filterModules('Sains', this)" class="filter-btn text-slate-600 font-fun text-xs font-bold px-4 py-2 rounded-xl transition-all hover:text-brand-blue">Sains</button>
+                        <button onclick="filterModules('Karakter', this)" class="filter-btn text-slate-600 font-fun text-xs font-bold px-4 py-2 rounded-xl transition-all hover:text-brand-blue">Karakter</button>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-2 text-xs font-bold text-slate-600">
+                    <i class="fa-solid fa-graduation-cap text-brand-blue"></i>Tingkat:
+                    <select onchange="setLevelFilter(this.value)" class="px-3 py-1.5 rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue">
+                        <option value="all">Semua</option>
+                        <option value="SD">SD</option>
+                        <option value="SMP">SMP</option>
+                        <option value="SMA">SMA</option>
+                    </select>
+                </div>
+
+                <!-- Modules Grid -->
+                <div id="modules-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Dynamic Modules inserted via JS -->
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="../assets/js/data.js"></script>
+    <script src="../assets/js/store.js"></script>
+    <script src="../assets/js/layout.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

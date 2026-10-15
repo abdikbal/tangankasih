@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rekomendasi Pintar - Yayasan Tangan Kasih</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script src="../assets/js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="min-h-screen flex flex-col text-slate-800" data-page="recommendations">
+
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <section id="view-recommendations" class="space-y-8">
+            <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-100 shadow-xl space-y-6">
+                <div class="flex items-center space-x-4 border-b border-slate-100 pb-6">
+                    <div class="w-14 h-14 bg-amber-100 rounded-2xl flex items-center justify-center text-amber-500 text-3xl">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-3xl font-bold text-slate-800">Analisis & Rekomendasi Pintar</h1>
+                        <p class="text-slate-500 text-sm">Sistem menganalisis kemampuan anak berdasarkan skor kuis terkini</p>
+                    </div>
+                </div>
+
+                <!-- Analysis Summary Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Strength Card -->
+                    <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-5 space-y-2">
+                        <div class="flex items-center justify-between text-emerald-700 font-fun font-bold">
+                            <span>Kekuatan Utama</span>
+                            <i class="fa-solid fa-circle-check text-xl"></i>
+                        </div>
+                        <div id="user-strength-text" class="text-2xl font-bold text-slate-800">Matematika Dasar</div>
+                        <p class="text-xs text-slate-600">Menunjukkan akurasi kuis di atas 85%.</p>
+                    </div>
+
+                    <!-- Area to Improve Card -->
+                    <div class="bg-amber-50 border border-amber-200 rounded-2xl p-5 space-y-2">
+                        <div class="flex items-center justify-between text-amber-700 font-fun font-bold">
+                            <span>Perlu Ditingkatkan</span>
+                            <i class="fa-solid fa-triangle-exclamation text-xl"></i>
+                        </div>
+                        <div id="user-weakness-text" class="text-2xl font-bold text-slate-800">Sains & Alam</div>
+                        <p class="text-xs text-slate-600">Dapat ditingkatkan dengan kuis interaktif tambahan.</p>
+                    </div>
+
+                    <!-- Recommended Learning Style -->
+                    <div class="bg-purple-50 border border-purple-200 rounded-2xl p-5 space-y-2">
+                        <div class="flex items-center justify-between text-purple-700 font-fun font-bold">
+                            <span>Level Rekomendasi</span>
+                            <i class="fa-solid fa-layer-group text-xl"></i>
+                        </div>
+                        <div id="user-recommended-level" class="text-2xl font-bold text-slate-800">Modul Tingkat 2</div>
+                        <p class="text-xs text-slate-600">Disesuaikan otomatis oleh algoritma sistem.</p>
+                    </div>
+                </div>
+
+                <!-- Recommended Path -->
+                <div class="space-y-4 pt-4">
+                    <h3 class="text-xl font-bold text-slate-800 font-fun">Jalur Belajar yang Disarankan Selanjutnya</h3>
+                    <div id="smart-recommendation-list" class="space-y-3">
+                        <!-- Dynamic Smart list injected via JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="../assets/js/data.js"></script>
+    <script src="../assets/js/store.js"></script>
+    <script src="../assets/js/layout.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
